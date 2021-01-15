@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire mobilité</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="/public/styles.css" rel="stylesheet" type="text/css" media="screen">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta content="IE=edge" http-equiv=X-UA-Compatible>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <script src="https://kit.fontawesome.com/7e5440b328.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <main>
+    <style>
+        .contener-acceuil{
+            display: flex;
+            flex-wrap: wrap;
+
+
+        }
+        .contener-acceuil .image{
+            width: 40%;
+            padding-top: 80px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .contener-acceuil .image img{
+            width: 70%;
+
+
+        }
+        .contener-acceuil .text{
+            width: 60%;
+            padding-left: 30px;
+            padding-top: 70px;
+            padding-right: 20px;
+
+
+
+        }
+        .contener-acceuil .text img{
+            width: 30%;
+            margin: 0 auto;
+
+
+        }
+        .contener-acceuil .text h1, p{
+            width: 100%;
+            margin: 0 auto;
+
+
+        }
+        .contener-acceuil .text h1{
+            color: rgb(199, 94, 94) !important;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom:10px;
+        }
+        .contener-acceuil .text p {
+            color:black;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom:10px;
+        }
+        .contener-acceuil .text .contener-button {
+            display: flex;
+            justify-content: center;
+
+        }
+        .contener-acceuil .text .contener-button a{
+                color: white;
+                padding: 15px 30px;
+                font-size: 31px;
+                background-color: rgb(246, 167, 64);
+                border-radius: 10px;
+                margin-top: 30px;
+
+
+        }
+
+        footer{
+            width: 100%;
+
+            padding-top: 150px;
+
+        }
+        footer .contener-text-footer{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+
+        }
+        footer .contener-text-footer .un{
+            width: 70%;
+            padding: 0 20px 10px 10px
+
+        }
+        footer .contener-text-footer .un p{
+            color: rgb(41, 137, 169);
+            font-weight: 300;
+
+        }
+        footer .contener-text-footer .deux{
+            width: 15%;
+
+
+
+        }
+        footer .contener-text-footer .deux p{
+         text-align: right;
+         padding:0 10px 10px 10px;
+         color: rgb(41, 137, 169);
+         font-weight: 300;
+
+
+        }
+        footer .contener-text-footer .trois{
+            width: 15%;
+
+        }
+
+
+
+
+
+
+    </style>
+
+    <div class="contener-acceuil">
+
+          <div class="image">
+            <img src="/public/imgs/rouede.png">
+          </div>
+        <div class="text">
+            <img src="/public/imgs/face-acc.png" alt="">
+            <h1>Diagnostic Mobilité FACE, Fondation Agir Contre l’Exclusion
+            </h1>
+            <p><b>Vous avez été orienté vers notre plateforme mobilité pour effectuer un diagnostic
+                mobilité. Ce questionnaire en ligne est un outil afin de trouver avec vous la solution
+                mobilité correspondant le mieux à votre situation personnelle.</b></p>
+                <p>Nous tiendrons compte de votre situation dans sa globalité sur le plan personnel,
+                    professionnel, financier, administratif, familial et environnemental au moment de
+                    l'accompagnement. Vos compétences, expériences mais aussi projets mobilité seront
+                    étudiés. Vos réponses seront discutées lors d’un prochain entretien approfondi au cours
+                    duquel nous déterminerons les actions et financements à mettre en place pour développer
+                    votre mobilité.</p>
+                    <p>Toutes les informations personnelles ne seront utilisées que dans le cadre de ce diagnostic
+                        mobilité, vous pouvez si vous le souhaitez, demander une copie de vos réponses.</p>
+                        <div class="contener-button">
+                        <a href="/question/getAll">commencer</a>
+                    </div>
+        </div>
+        </div>
+
+        <footer>
+           <div class="contener-text-footer">
+               <div class="un">
+                    <p><b>LE RÈGLEMENT GÉNÉRAL SUR LA PROTECTION DES DONNÉES</b></p>
+                    <p>Les données à caractère personnel collectées dans ce formulaire sont destinées à la réalisation et au suivi des actions de mobilité qui vous seront dispensées. Ces
+                        données sont conservées par FACE Côte d’Opale et mises à la disposition du partenaire concourant à la délivrance des actions de mobilité. Conformément à la loi
+                        du 06 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés, vous disposez d’un droit d’accès et de rectification aux informations qui vous
+                        concernent auprès de FACE Côte d’Opale.</p>
+
+                    </div>
+                    <div class="deux">
+                    <p>Ce questionnaire en ligne a été financé
+                        par le Conseil Départemental du Pas
+                        de Calais, il a été réalisé  par
+                        des apprenants de l’Ecole Simplon</p>
+
+                    </div>
+                    <div class="trois">
+                    <img src="/public/imgs/logo-pdc.png" alt="">
+
+                </div>
+            </div>
+        </footer>
+
+
+  </main>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulaire mobilité</title>
+        <link rel="stylesheet" type="text/css" href="/public/styles.css" media="screen">
+<link rel="stylesheet" href="/public/print.css" type="text/css" media="print">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+        <meta content="IE=edge" http-equiv=X-UA-Compatible>
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <script src="https://kit.fontawesome.com/7e5440b328.js" crossorigin="anonymous"></script>
+      </head>
+      
+
+<body>
+    <div  id="content" class="contener-glob">
+        <a class="print" onclick="createPDF()"><i class="fas fa-print"></i></a>
+    <img class="logoPdf" src="/public/imgs/logo-face.png" alt="">
+    <div class="contener-reponse">
+    <% result.Input.forEach(input=>{ %>
+        <div class="cont">
+            <h1 id="h1"><%=input.question %> </h1>
+            <h2 id="h2"><%=input.response %></h2>
+        </div>
+    <%})%>
+ 
+</div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js"></script>
+
+<script>
+    function createPDF(){
+        window.print()
+    }
+</script>
+</html>

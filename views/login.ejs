@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire mobilité</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <link href="/public/styles-deux.css" rel="stylesheet" type="text/css" media="screen">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta content="IE=edge" http-equiv=X-UA-Compatible>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <script src="https://kit.fontawesome.com/7e5440b328.js" crossorigin="anonymous"></script>
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+  <!--[if IE 7]>
+        <link href="css/stylesie7.css" rel="stylesheet" type="text/css" media="screen">
+    <![endif]-->
+</head>
+
+<body>
+  <main>
+    <div class="container-couleur">
+      <div class="plan">
+        <div class="gauche">
+          <img class="logo" src="/public/imgs/rouede.png" alt="">
+
+        </div>
+        <div class="droite">
+          <span class="un"></span>
+          <span class="deux"></span>
+          <span class="trois"></span>
+          <div class="box">
+            <form method="POST" action="/user/login" id="loginForm">
+            <div class="input-field col s12">
+              <input name="Email" id="Email" type="text" class="validate">
+              <label for="Email"> Adresse Mail </label>
+            </div>
+            <div class="input-field col s12">
+              <input name="Password" id="pass" type="password" class="validate">
+              <label for="pass" class="active"> Mot de passe </label>
+
+            </div>
+            <button type="submit" id="submit" class="waves-effect waves-light btn">LOGIN</button>
+
+          </form>
+          <div class="container-mdp">
+          <button data-target="modal2" class="modal-trigger" id="forgot">Mot de passe oublié?</button>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="EmailForgot" type="email" class="validate">
+            <label for="email">Veuillez renseigner votre adresse mail, un lien de récupération vous sera envoyé.</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id='sendMail'  class="modal-close waves-effect waves-green btn-flat">Envoyer</button>
+      </div>
+    </div>
+
+  </main>
+</body>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../public/login.js"></script>
+
+
+</html>

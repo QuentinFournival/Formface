@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire mobilité</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <link href="/public/styles.css" rel="stylesheet" type="text/css" media="screen">
+
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta content="IE=edge" http-equiv=X-UA-Compatible>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <script src="https://kit.fontawesome.com/7e5440b328.js" crossorigin="anonymous"></script>
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+  <!--[if IE 7]>
+        <link href="css/stylesie7.css" rel="stylesheet" type="text/css" media="screen">
+    <![endif]-->
+</head>
+
+<body>
+  <main>
+
+<div class="contener-color">
+  <ul class="col s3 tabes">
+    <!-- <li id='un' class="tabe actives"><a  href="#test1">Tableau</a></li> -->
+    <!-- <li id='deux' class="tabe "><a  href="#test2">Formulaire</a></li> -->
+  </ul>
+  <div class="contener-tableaux">
+
+  <div id="test1" class="col s12">
+    <div class="contener-formulaire">
+
+      <% responses.forEach(response=>{ %>
+        <form action="/answer/<%=response._id%>?_method=DELETE" method="POST">
+          <div class="contener-user">
+            <% const name = response.Input.find(input =>{ return input.question =="Nom-Prénom"})%>
+            <h1><%= name.response %></h1>
+            <% const DDN = response.Input.find(input =>{ return input.question =="Date de naissance"})%>
+            <p><%= DDN.response %></p>
+            <% const mail = response.Input.find(input =>{ return input.question =="Adresse mail"})%>
+            <p><%=mail.response %></p>
+            <p><%= responses.indexOf(response) +1%></p>
+            <div class="contener-picto">
+              <a href="/answer/<%=response._id%>" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i></a>
+               <button  class="supp"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+        </form>
+      <%})%>
+      <% if(responses.length == 0){ %>
+        <style>
+          .envoi{
+            bottom: 40% !important;
+            right: 50% !important;
+            transform: translate(50%,50%) !important;
+          }
+          h2{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            text-align: center;
+            font-size: 30px;
+            color:#24888F;
+          }
+        </style>
+        <h2>Il n'y a pas de questionnaire à afficher</h2>
+     <% }%>
+
+
+      <button data-target="modal2" class=" envoi waves-effect waves-light btn modal-trigger">Nouveau formulaire</button>
+
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="Email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id='sendMail'  class="modal-close waves-effect waves-green btn-flat">Envoyer</button>
+        </div>
+      </div>
+
+
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+
+          <p>Voulez-vous vraiment supprimer le formulaire ?</p>
+        </div>
+        <div class="modal-footer">
+          <a  class="modal-close waves-effect waves-green btn-flat">Non</a>
+          <button  type="submit" class="modal-close waves-effect waves-green btn-flat">Oui</button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+<!-- //--------------------------PDF---------------------------// -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- //-----------------------------------------------------// -->
+</div>
+
+</div>
+  </main>
+</body>
+
+
+<script src="/public/back.js"></script>
+<script src="/public/sendMail.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+</html>

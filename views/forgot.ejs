@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire mobilité</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="/public/styles-deux.css" rel="stylesheet" type="text/css" media="screen">
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta content="IE=edge" http-equiv=X-UA-Compatible>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <script src="https://kit.fontawesome.com/7e5440b328.js" crossorigin="anonymous"></script>
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+  <!--[if IE 7]>
+        <link href="css/stylesie7.css" rel="stylesheet" type="text/css" media="screen">
+    <![endif]-->
+</head>
+
+
+<div class="container-couleur">
+<div class="plan">
+<div class="image">
+    <img class="logo" src="/public/imgs/rouede.png" alt="">
+</div>
+
+<form class="forgot" action="/user/forgot/<%= id %>" method="post">
+
+    <div class="input-field col s12">
+        <input name="NewPass" id="NewPass" type="text" class="validate">
+        <label for="NewPass"> Votre nouveau mot de passe </label>
+      </div>
+      <div class="input-field col s12">
+        <input name="NewPassConfirm" id="NewPassConfirm" type="text" class="validate">
+        <label for="NewPassConfirm"> Confirmez votre nouveau mot de passe </label>
+      </div>
+    
+
+    <button class="waves-effect waves-light btn" type="submit">Envoyer</button>
+</form>
+</div>
+</div>
+
+
+</main>
+</body>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/public/login.js"></script>
+
+
+</html>

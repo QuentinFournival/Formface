@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire mobilité</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="/public/styles.css" rel="stylesheet" type="text/css" media="screen">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta content="IE=edge" http-equiv=X-UA-Compatible>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <script src="https://kit.fontawesome.com/7e5440b328.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <main>
+
+
+    <div class="contener-couleur">
+      <div class="deco-un"></div>
+      <div class="deco-deux"></div>
+      <div class="deco-trois"></div>
+      <div class="deco-quatre"></div>
+      <div class="deco-cinq"></div>
+      <div class="deco-six"></div>
+      <div class="contener-main">
+        <div class="logos"><img src="/public/imgs/logo-face.png" alt=""></div>
+        <h1>Mon diagnostic mobilité</h1>
+        <div class="progresse">
+          <div class="contener-progress">
+            <div class="toggle on">
+              <p>1</p>
+            </div>
+            <div class="toggle barre-1 on"></div>
+          </div>
+        </div>
+        <div class="contener-questions">
+          <form name="questions" action="/answer" method="POST" id="form">
+            <div class="contener-droite">
+              <div id="Identité" class="containere">
+                <h2>Identité</h2>
+
+                <% questions.forEach(question=> { %>
+                <% if(question.Section=='Identité' ){ %>
+                <% if(question.Type=="Ouverte" ){ %>
+                <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                  data-require="<%=question.DropdownValue%>">
+                  <input id="<%=question.Content%>" type="text" class="validate" required>
+                  <label for="<%=question.Content%>">
+                    <%= question.Content %>
+                  </label>
+                </div>
+                <% }else{ %>
+                <% if(question.SecondaryType=="Select" ){ %>
+                <div class="input-field col s12 questionJS wrapperMenu" name='<%= question.Content %>'>
+                  <select class="menuD">
+                    <option value="" selected>Sélectionnez une réponse</option>
+                    <% question.InputContent.forEach( element=> { %>
+
+                    <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                      <%= element %>
+                    </option>
+
+                    <% }) %>
+                  </select>
+                  <label>
+                    <%= question.Content %>
+                  </label>
+                </div>
+                <% }else{ %>
+                <div class="input-field">
+                  <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                    data-require="<%=question.DropdownValue%>">
+                    <p>
+                      <%= question.Content %>
+                      <div class="contener-box">
+                        <%question.InputContent.forEach(element=> { %>
+                        <div class="boxLabel">
+                          <label class="col s6">
+                            <input class="take" type="checkbox" name="<%= element %>" />
+                            <span>
+                              <%= element %>
+                            </span>
+                          </label>
+                        </div>
+                        <% }) %>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+                <% } %>
+                <% } %>
+
+                <% } %>
+                <% }) %>
+
+
+                <h2>Vos expériences mobilités</h2>
+
+                <% questions.forEach(question=> { %>
+                  <% if(question.Section=='VOS EPERIENCES MOBILITÉS' ){ %>
+                  <% if(question.Type=="Ouverte" ){ %>
+                  <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                    data-require="<%=question.DropdownValue%>">
+                    <input id="<%=question.Content%>" type="text" class="validate" required>
+                    <label for="<%=question.Content%>">
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <% if(question.SecondaryType=="Select" ){ %>
+                  <div class="input-field col s12 questionJS wrapperMenu"  name='<%= question.Content %>'>
+                    <select>
+                      <option value="" selected>Sélectionnez une réponse</option>
+                      <% question.InputContent.forEach( element=> { %>
+
+                      <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                        <%= element %>
+                      </option>
+
+                      <% }) %>
+                    </select>
+                    <label>
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <div class="input-field">
+                    <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                      data-require="<%=question.DropdownValue%>">
+                      <p>
+                        <%= question.Content %>
+                        <div class="contener-box">
+                          <%question.InputContent.forEach(element=> { %>
+                          <div class="boxLabel">
+                            <label class="col s6">
+                              <input class="take" type="checkbox" name="<%= element %>" />
+                              <span>
+                                <%= element %>
+                              </span>
+                            </label>
+                          </div>
+                          <% }) %>
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                  <% } %>
+                  <% } %>
+
+                  <% } %>
+                  <% }) %>
+
+
+                <h2>Vos compétences mobilités</h2>
+                <% questions.forEach(question=> { %>
+                  <% if(question.Section=='VOS COMPÉTENCES MOBILITÉS' ){ %>
+                  <% if(question.Type=="Ouverte" ){ %>
+                  <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                    data-require="<%=question.DropdownValue%>">
+                    <input id="<%=question.Content%>" type="text" class="validate" required>
+                    <label for="<%=question.Content%>">
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <% if(question.SecondaryType=="Select" ){ %>
+                  <div class="input-field col s12 questionJS wrapperMenu"  name='<%= question.Content %>'>
+                    <select>
+                      <option value="" selected>Sélectionnez une réponse</option>
+                      <% question.InputContent.forEach( element=> { %>
+
+                      <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                        <%= element %>
+                      </option>
+
+                      <% }) %>
+                    </select>
+                    <label>
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <div class="input-field">
+                    <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                      data-require="<%=question.DropdownValue%>">
+                      <p>
+                        <%= question.Content %>
+                        <div class="contener-box">
+                          <%question.InputContent.forEach(element=> { %>
+                          <div class="boxLabel">
+                            <label class="col s6">
+                              <input class="take" type="checkbox" name="<%= element %>" />
+                              <span>
+                                <%= element %>
+                              </span>
+                            </label>
+                          </div>
+                          <% }) %>
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                  <% } %>
+                  <% } %>
+
+                  <% } %>
+                  <% }) %>
+
+
+
+                <h2>Vos compétences clés</h2>
+                <% questions.forEach(question=> { %>
+                  <% if(question.Section=='VOS COMPÉTENCES CLÉS' ){ %>
+                  <% if(question.Type=="Ouverte" ){ %>
+                  <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                    data-require="<%=question.DropdownValue%>">
+                    <input id="<%=question.Content%>" type="text" class="validate" required>
+                    <label for="<%=question.Content%>">
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <% if(question.SecondaryType=="Select" ){ %>
+                  <div class="input-field col s12 questionJS wrapperMenu"  name='<%= question.Content %>'>
+                    <select>
+                      <option value="" selected>Sélectionnez une réponse</option>
+                      <% question.InputContent.forEach( element=> { %>
+
+                      <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                        <%= element %>
+                      </option>
+
+                      <% }) %>
+                    </select>
+                    <label>
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <div class="input-field">
+                    <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                      data-require="<%=question.DropdownValue%>">
+                      <p>
+                        <%= question.Content %>
+                        <div class="contener-box">
+                          <%question.InputContent.forEach(element=> { %>
+                          <div class="boxLabel">
+                            <label class="col s6">
+                              <input class="take" type="checkbox" name="<%= element %>" />
+                              <span>
+                                <%= element %>
+                              </span>
+                            </label>
+                          </div>
+                          <% }) %>
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                  <% } %>
+                  <% } %>
+
+                  <% } %>
+                  <% }) %>
+
+
+                <h2>Mon budget mobilité</h2>
+
+                <% questions.forEach(question=> { %>
+                  <% if(question.Section=='MON BUDGET MOBILITÉ' ){ %>
+                  <% if(question.Type=="Ouverte" ){ %>
+                  <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                    data-require="<%=question.DropdownValue%>">
+                    <input id="<%=question.Content%>" type="text" class="validate" required>
+                    <label for="<%=question.Content%>">
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <% if(question.SecondaryType=="Select" ){ %>
+                  <div class="input-field col s12 questionJS wrapperMenu"  name='<%= question.Content %>'>
+                    <select>
+                      <option value="" selected>Sélectionnez une réponse</option>
+                      <% question.InputContent.forEach( element=> { %>
+
+                      <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                        <%= element %>
+                      </option>
+
+                      <% }) %>
+                    </select>
+                    <label>
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <div class="input-field">
+
+                    <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                      data-require="<%=question.DropdownValue%>">
+                      <p>
+                        <%= question.Content %>
+                        <div class="contener-box">
+                          <%question.InputContent.forEach(element=> { %>
+                          <div class="boxLabel">
+                            <label class="col s6">
+                              <input class="take" type="checkbox" name="<%= element %>" />
+                              <span>
+                                <%= element %>
+                              </span>
+                            </label>
+                          </div>
+                          <% }) %>
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                  <% } %>
+                  <% } %>
+
+                  <% } %>
+                  <% }) %>
+
+
+                <h2> Mon cadre de vie</h2>
+
+                <% questions.forEach(question=> { %>
+                  <% if(question.Section=='MON CADRE DE VIE' ){ %>
+                  <% if(question.Type=="Ouverte" ){ %>
+                  <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                    data-require="<%=question.DropdownValue%>">
+                    <input id="<%=question.Content%>" type="text" class="validate" required>
+                    <label for="<%=question.Content%>">
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <% if(question.SecondaryType=="Select" ){ %>
+                  <div class="input-field col s12 questionJS wrapperMenu"  name='<%= question.Content %>'>
+                    <select>
+                      <option value="" selected>Sélectionnez une réponse</option>
+                      <% question.InputContent.forEach( element=> { %>
+
+                      <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                        <%= element %>
+                      </option>
+
+                      <% }) %>
+                    </select>
+                    <label>
+                      <%= question.Content %>
+                    </label>
+                  </div>
+                  <% }else{ %>
+                  <div class="input-field">
+                    <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                      data-require="<%=question.DropdownValue%>">
+                      <p>
+                        <%= question.Content %>
+                        <div class="contener-box">
+                          <%question.InputContent.forEach(element=> { %>
+                          <div class="boxLabel">
+                            <label class="col s6">
+                              <input class="take" type="checkbox" name="<%= element %>" />
+                              <span>
+                                <%= element %>
+                              </span>
+                            </label>
+                          </div>
+                          <% }) %>
+                        </div>
+                      </p>
+                    </div>
+                  </div>
+                  <% } %>
+                  <% } %>
+
+                  <% } %>
+                  <% }) %>
+
+
+                  <h2>MA SITUATION PERSONNELLE</h2>
+
+                  <% questions.forEach(question=> { %>
+                    <% if(question.Section=='MA SITUATION PERSONNELLE' ){ %>
+                    <% if(question.Type=="Ouverte" ){ %>
+                    <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                      data-require="<%=question.DropdownValue%>">
+                      <input id="<%=question.Content%>" type="text" class="validate" required>
+                      <label for="<%=question.Content%>">
+                        <%= question.Content %>
+                      </label>
+                    </div>
+                    <% }else{ %>
+                    <% if(question.SecondaryType=="Select" ){ %>
+                    <div class="input-field col s12 questionJS wrapperMenu"  name='<%= question.Content %>'>
+                      <select>
+                        <option value="" selected>Sélectionnez une réponse</option>
+                        <% question.InputContent.forEach( element=> { %>
+
+                        <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                          <%= element %>
+                        </option>
+
+                        <% }) %>
+                      </select>
+                      <label>
+                        <%= question.Content %>
+                      </label>
+                    </div>
+                    <% }else{ %>
+                    <div class="input-field">
+                      <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                        data-require="<%=question.DropdownValue%>">
+                        <p>
+                          <%= question.Content %>
+                          <div class="contener-box">
+                            <%question.InputContent.forEach(element=> { %>
+                            <div class="boxLabel">
+                              <label class="col s6">
+                                <input class="take" type="checkbox" name="<%= element %>" />
+                                <span>
+                                  <%= element %>
+                                </span>
+                              </label>
+                            </div>
+                            <% }) %>
+                          </div>
+                        </p>
+                      </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+
+                    <% } %>
+                    <% }) %>
+
+
+                    <h2>MES PROJETS MOBILITE</h2>
+
+                    <% questions.forEach(question=> { %>
+                      <% if(question.Section=='MES PROJETS MOBILITE' ){ %>
+                      <% if(question.Type=="Ouverte" ){ %>
+                      <div class="input-field col s12 questionJS ouverteJS" name="<%= question.Content %>"
+                        data-require="<%=question.DropdownValue%>">
+                        <input id="<%=question.Content%>" type="text" class="validate" required>
+                        <label for="<%=question.Content%>">
+                          <%= question.Content %>
+                        </label>
+                      </div>
+                      <% }else{ %>
+                      <% if(question.SecondaryType=="Select" ){ %>
+                      <div class="input-field col s12 questionJS wrapperMenu"  name='<%= question.Content %>'>
+                        <select>
+                          <option value="" selected>Sélectionnez une réponse</option>
+                          <% question.InputContent.forEach( element=> { %>
+
+                          <option value="<%= question.InputContent.indexOf(element) + 1  %>">
+                            <%= element %>
+                          </option>
+
+                          <% }) %>
+                        </select>
+                        <label>
+                          <%= question.Content %>
+                        </label>
+                      </div>
+                      <% }else{ %>
+                      <div class="input-field">
+                        <div class="box questionJS ferméJS" name="<%= question.Content %>"
+                          data-require="<%=question.DropdownValue%>">
+                          <p>
+                            <%= question.Content %>
+                            <div class="contener-box">
+                              <%question.InputContent.forEach(element=> { %>
+                              <div class="boxLabel">
+                                <label class="col s6">
+                                  <input class="take" type="checkbox" name="<%= element %>" />
+                                  <span>
+                                    <%= element %>
+                                  </span>
+                                </label>
+                              </div>
+                              <% }) %>
+                            </div>
+                          </p>
+                        </div>
+                      </div>
+                      <% } %>
+                      <% } %>
+
+                      <% } %>
+                      <% }) %>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+
+        <div id="next" class="next">
+          <p>suivant</p>
+        </div>
+        <div data-target="modal1" id="sub" class="next none modal-trigger">
+          <p>Envoyer</p>
+        </div>
+        <div data-target="modal1" id="sube" class="respon-envo modal-trigger">
+          <p>Envoyer</p>
+        </div>
+
+        <div class="back">
+          <p>retour</p>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+</body>
+
+<script src="/public/result.js"></script>
+<script defer src="/public/front.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+</html>
